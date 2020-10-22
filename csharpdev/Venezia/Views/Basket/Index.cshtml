@@ -1,0 +1,29 @@
+﻿@model Venezia.Models.BasketViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Mon panier</h1>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @{this.Write(Html.DisplayNameForInnerType<Venezia.Models.Car, string>(x => x.Mark)); }
+        </th>
+        <th>Modèle</th>
+        <th>Tarif</th>
+        <th>Quantité</th>
+    </tr>
+    @foreach (var item in Model.Cars)
+    {
+<tr>
+    <td>@item.Key.Mark</td>
+    <td>@item.Key.Model</td>
+    <td>@item.Key.Price</td>
+    <td>@item.Value</td>
+</tr>
+    }
+</table>
+<div class="alert alert-primary">
+    TOTAL: @Model.Total
+</div>
+
